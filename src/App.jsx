@@ -1,5 +1,5 @@
 import About from "./components/About/About"
-import Experience from "./components/Experience/Experience"
+import Skills from "./components/Skills/Skills"
 import Footer from "./components/Footer/Footer"
 import Home from "./components/Home/Home"
 import Navbar from "./components/Navbar/Navbar"
@@ -13,7 +13,7 @@ function App() {
       <Navbar/>
       <Home/>
       <About/>
-      <Experience/>
+      <Skills/>
       <Projects/>
       <Footer/>
     </div>
