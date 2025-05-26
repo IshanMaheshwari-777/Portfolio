@@ -1,6 +1,7 @@
 import React from 'react'
-import bannerImg from '../../assets/Dishcover.png'      
-const ProjectCard = ({title,main, Tech,demo,source}) => {
+// import bannerImg from '../../assets/Dishcover.png'
+// import bannerImg from '../../assets/Brainwave.svg'    
+const ProjectCard = ({title,main, Tech,demo,source,bannerImg}) => {
   return (
     <div className='p-3 md:p-6 flex flex-col w-80 bg-[#0c0e19] shadow-xl shadow-slate-900 rounded-2xl '>
         <img className='p-4' src={bannerImg} alt="" />
