@@ -9,8 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#050508",
+        foreground: "#F8FAFC",
+        accent1: "#7C3AED",
+        accent2: "#06B6D4",
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },
