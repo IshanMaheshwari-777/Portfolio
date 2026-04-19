@@ -42,7 +42,7 @@ const projects = [
     title: "Analysis-of-Road-Traffic-Accident-Severity",
     description: "This project analyzes road traffic accident data (Addis Ababa, 2017–2020) to identify drivers of accident severity — including temporal patterns, vehicle types, environmental conditions, and driver characteristics — and to support a data-driven dashboard for safety decision-making.",
     stack: ["Sheets", "EDA", "Data Cleaning", "Statistical Analysis"],
-    // liveUrl: "https://drop-zone-beta.vercel.app/",
+    liveUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity/blob/main/Dashboard/RTA_Dashboard.png",
     githubUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity",
     color: "from-accent2/20 to-transparent",
   }
