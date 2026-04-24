@@ -12,7 +12,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-4 inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-accent1/30 bg-accent1/10 text-accent1 text-sm font-medium"
         >
-          <span>AI Engineer · Full Stack · Frontend</span>
+          <span>AI Engineer · Full Stack · Data Science</span>
         </motion.div>
 
         <motion.div
@@ -77,7 +77,7 @@ export default function Hero() {
             <span className="text-2xl">🔥</span>
             <div>
               <p className="text-xs text-white/50">LeetCode Streak</p>
-              <p className="font-bold text-accent1">520+ Days</p>
+              <p className="font-bold text-accent1">500+ Days</p>
             </div>
           </div>
         </motion.div>
