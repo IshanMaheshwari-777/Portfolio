@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 export default function About() {
   const stats = [
     { label: "LeetCode", value: "520+ Days" },
-    { label: "Built", value: "2 Projects" },
+    { label: "Built", value: "5+ Projects" },
     { label: "Organizer", value: "Neutron Fest" },
     { label: "University Team", value: "Cricket" },
+    {label: "Youtube", value: "Creator"}
   ];
 
   return (
