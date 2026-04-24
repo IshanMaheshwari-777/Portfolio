@@ -45,6 +45,14 @@ const projects = [
     liveUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity/blob/main/Dashboard/RTA_Dashboard.png",
     githubUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity",
     color: "from-accent2/20 to-transparent",
+  },
+  {
+    title: "NextFlow",
+    description: "Built a full-stack visual AI workflow builder with node-based architecture, async execution, and portable workflows via JSON serialization.",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "React Flow", "Node.js", "Prisma", "PostgreSQL (Neon)", "Groq API", "Clerk Auth"],
+    liveUrl: "https://next-flow-liart.vercel.app/",
+    githubUrl: "https://github.com/IshanMaheshwari-777/NextFlow",
+    color: "from-accent2/20 to-transparent",
   }
 ];
 
