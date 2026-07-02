@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 
 export default function About() {
   const stats = [
-    { label: "LeetCode", value: "520+ Days" },
+    { label: "LeetCode Streak", value: "600+ Days" },
+    { label: "DegreeBaba", value: "SDE Intern" },
+    { label: "YouTube", value: "@IshanDecodes" },
     { label: "Built", value: "5+ Projects" },
-    { label: "Organizer", value: "Neutron Fest" },
     { label: "University Team", value: "Cricket" },
-    {label: "Youtube", value: "Creator"}
+    { label: "Organizer", value: "Neutron Fest" },
   ];
 
   return (
@@ -27,18 +28,21 @@ export default function About() {
           </h2>
           <div className="space-y-6 text-lg text-white/70 font-light leading-relaxed">
             <p>
-              I&apos;m a 2nd year B.Tech student at Newton School of Technology, Rishihood University. 
-              I love solving real-world problems, especially in teams.
+              I&apos;m a 2nd year B.Tech CS student at Rishihood University (CGPA: 8.6), currently interning as a
+              {" "}<span className="text-accent1 font-medium">Software Development Engineer at DegreeBaba</span>{" "}
+              — building AI-powered platforms, a cross-platform CRM, and driving engineering decisions from concept to production.
             </p>
             <p>
-              I&apos;ve worked on university fests, play cricket, edit videos, and recently started YouTube. 
-              I believe in consistency — <span className="text-accent1 font-medium">520+ days of LeetCode</span>.
+              Beyond code, I create research-driven content on YouTube as{" "}
+              <span className="text-accent2 font-medium">@IshanDecodes</span> — covering business, tech, AI, and branding.
+              I organise university fests, play cricket for my university team, and live by consistency:
+              {" "}<span className="text-accent1 font-medium">600+ days of LeetCode</span>.
             </p>
           </div>
         </motion.div>
 
         {/* Right Side: Floating Cards */}
-        <div className="flex-1 w-full grid grid-cols-2 gap-4 relative">
+        <div className="flex-1 w-full grid grid-cols-3 gap-4 relative">
           {/* Subtle background glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-accent1/10 blur-[80px] rounded-full -z-10" />
           

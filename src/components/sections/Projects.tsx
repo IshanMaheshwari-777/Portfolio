@@ -39,8 +39,8 @@ const projects = [
     color: "from-accent2/20 to-transparent",
   },
   {
-    title: "Analysis-of-Road-Traffic-Accident-Severity",
-    description: "This project analyzes road traffic accident data (Addis Ababa, 2017–2020) to identify drivers of accident severity — including temporal patterns, vehicle types, environmental conditions, and driver characteristics — and to support a data-driven dashboard for safety decision-making.",
+    title: "Road Traffic Analysis",
+    description: "Data-driven analysis of road traffic accident severity (Addis Ababa, 2017–2020) — uncovering temporal patterns, vehicle types, and environmental factors via an interactive safety dashboard.",
     stack: ["Sheets", "EDA", "Data Cleaning", "Statistical Analysis"],
     liveUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity/blob/main/Dashboard/RTA_Dashboard.png",
     githubUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity",

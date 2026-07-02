@@ -2,11 +2,11 @@
 import { motion } from "framer-motion";
 
 const skillsData = [
-  { category: "Frontend", items: ["HTML", "CSS", "JS", "React", "Next.js", "Tailwind", "Framer Motion"] },
-  { category: "Backend", items: ["Node.js", "Express", "MongoDB", "MySQL", "PostgreSQL"] },
-  { category: "AI", items: ["Python", "Machine Learning", "GenAI", "NumPy", "Pandas"] },
-  { category: "Tools", items: ["Git", "Postman", "Tableau"] },
-  { category: "Soft Skills", items: ["Leadership", "Communication", "Problem Solving"] },
+  { category: "Languages", items: ["Python", "SQL", "JavaScript", "TypeScript"] },
+  { category: "Libraries", items: ["React", "Next.js", "Express.js", "NumPy", "Pandas", "Matplotlib", "TensorFlow"] },
+  { category: "Tools", items: ["Git", "GitHub", "Postman", "Prisma ORM", "OAuth 2.0", "Tableau"] },
+  { category: "Databases", items: ["MongoDB", "MySQL", "PostgreSQL", "Redis", "SQLite"] },
+  { category: "Other", items: ["Machine Learning", "GenAI", "Leadership", "Problem Solving"] },
 ];
 
 export default function Skills() {

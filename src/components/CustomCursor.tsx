@@ -51,7 +51,7 @@ export default function CustomCursor() {
         backgroundColor: isHovered ? "rgba(124, 58, 237, 0.4)" : "rgba(124, 58, 237, 0)",
         border: isHovered ? "1px solid rgba(124, 58, 237, 0)" : "1px solid rgba(124, 58, 237, 0.8)",
       }}
-      transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+      transition={{ type: "spring", stiffness: 1200, damping: 30, mass: 0.1 }}
     >
       <motion.div
         className="w-1.5 h-1.5 bg-accent2 rounded-full"

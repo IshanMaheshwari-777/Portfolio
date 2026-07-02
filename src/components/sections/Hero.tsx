@@ -77,7 +77,7 @@ export default function Hero() {
             <span className="text-2xl">🔥</span>
             <div>
               <p className="text-xs text-white/50">LeetCode Streak</p>
-              <p className="font-bold text-accent1">500+ Days</p>
+              <p className="font-bold text-accent1">600+ Days</p>
             </div>
           </div>
         </motion.div>
