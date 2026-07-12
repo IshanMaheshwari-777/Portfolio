@@ -6,8 +6,24 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-dusky-delta-25.vercel.app"),
   title: "Ishan Maheshwari | Portfolio",
-  description: "AI Engineer | Full Stack Developer | Frontend Developer",
+  description:
+    "CS undergrad and SDE intern building full-stack, AI-powered products. Projects, experience, and ways to get in touch.",
+  openGraph: {
+    title: "Ishan Maheshwari | Portfolio",
+    description:
+      "CS undergrad and SDE intern building full-stack, AI-powered products.",
+    url: "/",
+    siteName: "Ishan Maheshwari",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ishan Maheshwari | Portfolio",
+    description:
+      "CS undergrad and SDE intern building full-stack, AI-powered products.",
+  },
 };
 
 export default function RootLayout({

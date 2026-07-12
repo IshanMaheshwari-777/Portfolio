@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -21,39 +22,55 @@ function GithubIcon({ className }: { className?: string }) {
   );
 }
 
-const projects = [
+const projects: {
+  title: string;
+  description: string;
+  stack: string[];
+  image: string;
+  liveUrl: string | null;
+  githubUrl: string;
+  color: string;
+}[] = [
   {
-    title: "Dishcover",
-    description: "Recipe app based on ingredients + nutrition.",
-    stack: ["React", "JS", "Gemini API"],
-    liveUrl: "https://dishcover-lemon.vercel.app/home",
-    githubUrl: "https://github.com/IshanMaheshwari-777/Dishcover",
+    title: "NextFlow",
+    description:
+      "A visual AI workflow builder — compose LLM pipelines as drag-and-drop node graphs, run them with async execution, and share workflows as portable JSON. Full-stack: auth, persistence, and live execution.",
+    stack: ["Next.js", "TypeScript", "React Flow", "Prisma", "PostgreSQL", "Groq API", "Clerk"],
+    image: "/nextflow.jpg",
+    liveUrl: "https://next-flow-liart.vercel.app/",
+    githubUrl: "https://github.com/IshanMaheshwari-777/NextFlow",
     color: "from-accent1/20 to-transparent",
   },
   {
+    title: "Dishcover",
+    description:
+      "Recipe discovery app that suggests dishes from the ingredients you already have, with nutrition breakdowns generated via the Gemini API.",
+    stack: ["React", "JavaScript", "Gemini API"],
+    image: "/dishcover.jpg",
+    liveUrl: "https://dishcover-lemon.vercel.app/home",
+    githubUrl: "https://github.com/IshanMaheshwari-777/Dishcover",
+    color: "from-accent2/20 to-transparent",
+  },
+  {
     title: "DropZone",
-    description: "Lost & Found platform with authentication and tracking.",
-    stack: ["MERN"],
+    description:
+      "Lost & found platform where users report, browse, and claim items — with authenticated accounts and item status tracking end to end.",
+    stack: ["MongoDB", "Express", "React", "Node.js"],
+    image: "/dropzone.jpg",
     liveUrl: "https://drop-zone-beta.vercel.app/",
     githubUrl: "https://github.com/IshanMaheshwari-777/DropZone",
     color: "from-accent2/20 to-transparent",
   },
   {
     title: "Road Traffic Analysis",
-    description: "Data-driven analysis of road traffic accident severity (Addis Ababa, 2017–2020) — uncovering temporal patterns, vehicle types, and environmental factors via an interactive safety dashboard.",
-    stack: ["Sheets", "EDA", "Data Cleaning", "Statistical Analysis"],
-    liveUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity/blob/main/Dashboard/RTA_Dashboard.png",
+    description:
+      "Data analysis of road traffic accident severity (Addis Ababa, 2017–2020) — temporal patterns, vehicle types, and environmental factors, summarized in a safety dashboard.",
+    stack: ["EDA", "Data Cleaning", "Statistical Analysis", "Dashboarding"],
+    image: "/road-traffic.png",
+    liveUrl: null,
     githubUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity",
     color: "from-accent2/20 to-transparent",
   },
-  {
-    title: "NextFlow",
-    description: "Built a full-stack visual AI workflow builder with node-based architecture, async execution, and portable workflows via JSON serialization.",
-    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "React Flow", "Node.js", "Prisma", "PostgreSQL (Neon)", "Groq API", "Clerk Auth"],
-    liveUrl: "https://next-flow-liart.vercel.app/",
-    githubUrl: "https://github.com/IshanMaheshwari-777/NextFlow",
-    color: "from-accent2/20 to-transparent",
-  }
 ];
 
 export default function Projects() {
@@ -83,6 +100,15 @@ export default function Projects() {
               <div className={`absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br ${project.color} blur-[60px] rounded-full mix-blend-screen opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />
               
               <div className="relative z-10 flex flex-col h-full">
+                <div className="relative aspect-video mb-6 rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
                 <h3 className="text-3xl font-bold text-white mb-3">{project.title}</h3>
                 <p className="text-white/60 mb-8 flex-1 text-lg leading-relaxed">{project.description}</p>
                 

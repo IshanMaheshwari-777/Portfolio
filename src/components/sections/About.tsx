@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 export default function About() {
   const stats = [
-    { label: "LeetCode Streak", value: "600+ Days" },
+    { label: "CGPA", value: "8.6" },
     { label: "DegreeBaba", value: "SDE Intern" },
     { label: "YouTube", value: "@IshanDecodes" },
-    { label: "Built", value: "5+ Projects" },
+    { label: "Problems Solved", value: "800+" },
     { label: "University Team", value: "Cricket" },
     { label: "Organizer", value: "Neutron Fest" },
   ];
@@ -36,7 +36,7 @@ export default function About() {
               Beyond code, I create research-driven content on YouTube as{" "}
               <span className="text-accent2 font-medium">@IshanDecodes</span> — covering business, tech, AI, and branding.
               I organise university fests, play cricket for my university team, and live by consistency:
-              {" "}<span className="text-accent1 font-medium">600+ days of LeetCode</span>.
+              {" "}<span className="text-accent1 font-medium">800+ DSA problems across LeetCode, Codeforces &amp; more, with a 600+ day LeetCode streak</span>.
             </p>
           </div>
         </motion.div>

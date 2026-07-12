@@ -12,7 +12,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-4 inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-accent1/30 bg-accent1/10 text-accent1 text-sm font-medium"
         >
-          <span>AI Engineer · Full Stack · Data Science</span>
+          <span>SDE Intern @ DegreeBaba · Full-Stack · AI</span>
         </motion.div>
 
         <motion.div
@@ -71,13 +71,13 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-10 md:bottom-20 right-10 md:right-32 animate-[floating_4s_ease-in-out_infinite]"
+          className="hidden md:block absolute md:bottom-20 md:right-32 animate-[floating_4s_ease-in-out_infinite]"
         >
           <div className="px-4 py-2 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_30px_rgba(124,58,237,0.2)] flex items-center space-x-2">
             <span className="text-2xl">🔥</span>
             <div>
-              <p className="text-xs text-white/50">LeetCode Streak</p>
-              <p className="font-bold text-accent1">600+ Days</p>
+              <p className="text-xs text-white/50">DSA · 600+ day LeetCode streak</p>
+              <p className="font-bold text-accent1">800+ Problems Solved</p>
             </div>
           </div>
         </motion.div>

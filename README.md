@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://your-portfolio-url.vercel.app" target="_blank">
+  <a href="https://portfolio-dusky-delta-25.vercel.app/" target="_blank">
     <img src="https://img.shields.io/badge/🌐 Live Portfolio-7C3AED?style=for-the-badge&logoColor=white" alt="Live Site" />
   </a>
   &nbsp;
