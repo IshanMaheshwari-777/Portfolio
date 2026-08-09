@@ -3,7 +3,7 @@
 # ✦ Ishan Maheshwari — Personal Portfolio
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=AI+Engineer+%C2%B7+Full+Stack+Developer;SDE+Intern+%40+DegreeBaba;YouTube+Creator+%40+IshanDecodes;600%2B+Days+LeetCode+Streak+%F0%9F%94%A5" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=AI+Engineer+%C2%B7+Full+Stack+Developer;SDE+Intern+%40+DegreeBaba;YouTube+Creator+%40+IshanDecodes;630%2B+Days+LeetCode+Streak+%F0%9F%94%A5" alt="Typing SVG" />
 </p>
 
 <p align="center">

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative pt-20">
-      <div className="max-w-7xl mx-auto px-6 w-full flex flex-col items-center text-center z-10">
+      <div className="max-w-7xl mx-auto px-6 w-full flex flex-col items-center text-center z-10 relative">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="text-base text-accent2/80 mt-4"
         >
-          2nd year B.Tech @ Newton School of Technology
+          3rd year B.Tech @ Newton School of Technology
         </motion.p>
 
         <motion.div
@@ -71,12 +71,12 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="hidden md:block absolute md:bottom-20 md:right-32 animate-[floating_4s_ease-in-out_infinite]"
+          className="hidden md:block absolute md:top-full md:right-0 mt-10 animate-[floating_4s_ease-in-out_infinite]"
         >
           <div className="px-4 py-2 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_30px_rgba(124,58,237,0.2)] flex items-center space-x-2">
             <span className="text-2xl">🔥</span>
             <div>
-              <p className="text-xs text-white/50">DSA · 600+ day LeetCode streak</p>
+              <p className="text-xs text-white/50">DSA · 630+ day LeetCode streak</p>
               <p className="font-bold text-accent1">800+ Problems Solved</p>
             </div>
           </div>

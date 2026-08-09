@@ -28,7 +28,7 @@ export default function About() {
           </h2>
           <div className="space-y-6 text-lg text-white/70 font-light leading-relaxed">
             <p>
-              I&apos;m a 2nd year B.Tech CS student at Rishihood University (CGPA: 8.6), currently interning as a
+              I&apos;m a 3rd year B.Tech CS student at Rishihood University (CGPA: 8.6), currently interning as a
               {" "}<span className="text-accent1 font-medium">Software Development Engineer at DegreeBaba</span>{" "}
               — building AI-powered platforms, a cross-platform CRM, and driving engineering decisions from concept to production.
             </p>
@@ -36,7 +36,7 @@ export default function About() {
               Beyond code, I create research-driven content on YouTube as{" "}
               <span className="text-accent2 font-medium">@IshanDecodes</span> — covering business, tech, AI, and branding.
               I organise university fests, play cricket for my university team, and live by consistency:
-              {" "}<span className="text-accent1 font-medium">800+ DSA problems across LeetCode, Codeforces &amp; more, with a 600+ day LeetCode streak</span>.
+              {" "}<span className="text-accent1 font-medium">800+ DSA problems across LeetCode, Codeforces &amp; more, with a 630+ day LeetCode streak</span>.
             </p>
           </div>
         </motion.div>

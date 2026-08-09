@@ -12,8 +12,9 @@ const experiences = [
     colorClass: "accent1",
     highlights: [
       "Build and ship features across the company's AI-powered platforms — frontend, backend, database, and deployment.",
+      "Shipped 12 production-ready applications end-to-end — 9 public-facing platforms for DegreeBaba and 3 internal tools.",
+      "Built a cross-platform CRM (web & mobile) and multiple AI-integrated platforms powering core products and internal operations.",
       "Built an AI-assisted content publishing pipeline (automated document ingestion, validation, and publishing workflows) that cut content processing costs by ~60%.",
-      "Developing a cross-platform CRM (web & mobile) to streamline internal operations.",
       "Work directly with the founders on product decisions, architecture, and the technical roadmap.",
     ],
     tags: ["Next.js", "Python", "AI/ML", "CRM", "Cloud", "Full Stack"],
