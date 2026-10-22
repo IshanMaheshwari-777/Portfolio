@@ -10,9 +10,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4 inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-accent1/30 bg-accent1/10 text-accent1 text-sm font-medium"
+          className="mb-4 inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-accent1/30 bg-accent1/10 text-accent1 text-xs sm:text-sm font-medium"
         >
-          <span>SDE Intern @ DegreeBaba · Full-Stack · AI</span>
+          <span>SDE Intern @ DegreeBaba · SDE-TA @ Newton School<span className="hidden md:inline"> · Full-Stack · AI</span></span>
         </motion.div>
 
         <motion.div
@@ -76,8 +76,8 @@ export default function Hero() {
           <div className="px-4 py-2 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_30px_rgba(124,58,237,0.2)] flex items-center space-x-2">
             <span className="text-2xl">🔥</span>
             <div>
-              <p className="text-xs text-white/50">DSA · 630+ day LeetCode streak</p>
-              <p className="font-bold text-accent1">800+ Problems Solved</p>
+              <p className="text-xs text-white/50">DSA · 700+ day LeetCode streak</p>
+              <p className="font-bold text-accent1">900+ Problems Solved</p>
             </div>
           </div>
         </motion.div>

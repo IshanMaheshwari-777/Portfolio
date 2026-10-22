@@ -35,7 +35,7 @@ export default function OpengraphImage() {
             marginBottom: 32,
           }}
         >
-          SDE Intern @ DegreeBaba · Full-Stack · AI
+          SDE Intern @ DegreeBaba · SDE-TA @ Newton School
         </div>
         <div style={{ display: "flex", fontSize: 96, fontWeight: 700, letterSpacing: -2 }}>
           Ishan Maheshwari

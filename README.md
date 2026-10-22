@@ -3,7 +3,7 @@
 # ✦ Ishan Maheshwari — Personal Portfolio
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=AI+Engineer+%C2%B7+Full+Stack+Developer;SDE+Intern+%40+DegreeBaba;YouTube+Creator+%40+IshanDecodes;630%2B+Days+LeetCode+Streak+%F0%9F%94%A5" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=AI+Engineer+%C2%B7+Full+Stack+Developer;SDE+Intern+%40+DegreeBaba;SDE-TA+%40+Newton+School;YouTube+Creator+%40+IshanDecodes;700%2B+Days+LeetCode+Streak+%F0%9F%94%A5" alt="Typing SVG" />
 </p>
 
 <p align="center">
@@ -42,7 +42,7 @@ A **dark, premium personal portfolio** built with Next.js 14, featuring smooth a
 |---|---|
 | 🏠 **Hero** | Animated intro with LeetCode streak badge |
 | 👤 **About** | Bio, CGPA, stats cards |
-| 💼 **Experience** | DegreeBaba internship · YouTube Creator |
+| 💼 **Experience** | DegreeBaba internship · Newton School SDE-TA · YouTube Creator |
 | 🛠️ **Projects** | Dishcover · DropZone · Road Traffic Analysis · NextFlow |
 | ⚡ **Skills** | Languages · Libraries · Tools · Databases |
 | 📬 **Contact** | Email · LinkedIn · GitHub · LeetCode · Codeforces · CodeChef |
@@ -95,7 +95,7 @@ src/
     └── sections/
         ├── Hero.tsx        # Landing with LeetCode streak badge
         ├── About.tsx       # Bio + floating stat cards
-        ├── Experience.tsx  # Timeline — DegreeBaba + YouTube
+        ├── Experience.tsx  # Timeline — DegreeBaba + Newton School + YouTube
         ├── Projects.tsx    # Project cards grid
         ├── Skills.tsx      # Skill tags by category
         └── Contact.tsx     # Email CTA + social links

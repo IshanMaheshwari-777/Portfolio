@@ -5,8 +5,11 @@ export default function About() {
   const stats = [
     { label: "CGPA", value: "8.6" },
     { label: "DegreeBaba", value: "SDE Intern" },
+    { label: "Newton School", value: "SDE-TA" },
+    { label: "Problems Solved", value: "900+" },
+    { label: "LeetCode Streak", value: "700+ Days" },
     { label: "YouTube", value: "@IshanDecodes" },
-    { label: "Problems Solved", value: "800+" },
+    { label: "Freelance", value: "Studio" },
     { label: "University Team", value: "Cricket" },
     { label: "Organizer", value: "Neutron Fest" },
   ];
@@ -31,12 +34,14 @@ export default function About() {
               I&apos;m a 3rd year B.Tech CS student at Rishihood University (CGPA: 8.6), currently interning as a
               {" "}<span className="text-accent1 font-medium">Software Development Engineer at DegreeBaba</span>{" "}
               — building AI-powered platforms, a cross-platform CRM, and driving engineering decisions from concept to production.
+              I&apos;m also an{" "}<span className="text-accent1 font-medium">SDE-TA at Newton School</span>, mentoring undergraduates in
+              computer science and programming.
             </p>
             <p>
               Beyond code, I create research-driven content on YouTube as{" "}
               <span className="text-accent2 font-medium">@IshanDecodes</span> — covering business, tech, AI, and branding.
               I organise university fests, play cricket for my university team, and live by consistency:
-              {" "}<span className="text-accent1 font-medium">800+ DSA problems across LeetCode, Codeforces &amp; more, with a 630+ day LeetCode streak</span>.
+              {" "}<span className="text-accent1 font-medium">900+ DSA problems across LeetCode, Codeforces &amp; more, with a 700+ day LeetCode streak</span>.
             </p>
           </div>
         </motion.div>

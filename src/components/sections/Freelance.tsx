@@ -46,7 +46,7 @@ export default function Freelance() {
             Freelance <span className="text-accent1">Studio</span>
           </h2>
           <p className="text-white/50 text-lg max-w-xl mx-auto">
-            Outside of DegreeBaba, I build custom software, AI products and web apps for
+            Alongside my internships, I build custom software, AI products and web apps for
             businesses — end to end, one person, start to finish.
           </p>
         </motion.div>

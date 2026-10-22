@@ -1,7 +1,35 @@
 "use client";
 import { motion } from "framer-motion";
 
-const experiences = [
+// Full class names so Tailwind picks them up.
+const colorStyles = {
+  accent1: {
+    dot: "bg-accent1/15 border-accent1/40",
+    glow: "bg-accent1/8",
+    text: "text-accent1",
+    badge: "bg-accent1/10 border-accent1/30 text-accent1",
+    bullet: "bg-accent1",
+  },
+  accent2: {
+    dot: "bg-accent2/15 border-accent2/40",
+    glow: "bg-accent2/8",
+    text: "text-accent2",
+    badge: "bg-accent2/10 border-accent2/30 text-accent2",
+    bullet: "bg-accent2",
+  },
+} as const;
+
+const experiences: {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  type: string;
+  icon: string;
+  colorClass: keyof typeof colorStyles;
+  highlights: string[];
+  tags: string[];
+}[] = [
   {
     role: "Software Development Intern",
     company: "DegreeBaba",
@@ -20,13 +48,28 @@ const experiences = [
     tags: ["Next.js", "Python", "AI/ML", "CRM", "Cloud", "Full Stack"],
   },
   {
+    role: "SDE-TA Intern",
+    company: "Newton School",
+    location: "Sonipat, India",
+    period: "October 2026 – Present",
+    type: "Internship",
+    icon: "🎓",
+    colorClass: "accent2",
+    highlights: [
+      "Mentor undergraduate students in Computer Science and Programming, breaking complex technical topics into easy-to-understand explanations.",
+      "Deliver exam-focused teaching sessions covering key syllabus topics, important concepts, and problem-solving approaches.",
+      "Reinforce programming fundamentals and analytical problem-solving through interactive discussions, worked examples, and step-by-step walkthroughs.",
+    ],
+    tags: ["Mentoring", "Teaching", "DSA", "CS Fundamentals", "Problem Solving"],
+  },
+  {
     role: "Content Creator (@IshanDecodes)",
     company: "YouTube",
     location: "Remote",
     period: "June 2026 – Present",
     type: "Creator",
     icon: "🎬",
-    colorClass: "accent2",
+    colorClass: "accent1",
     highlights: [
       "Produce research-driven long-form videos on business strategy, technology, AI, sports, and branding.",
       "Conduct in-depth market research and competitive analysis from multiple credible sources.",
@@ -80,9 +123,7 @@ export default function Experience() {
                 <div className="relative shrink-0 flex flex-col items-center" style={{ width: "40px" }}>
                   <div
                     className={`w-10 h-10 rounded-2xl flex items-center justify-center text-xl z-10 border ${
-                      idx === 0
-                        ? "bg-accent1/15 border-accent1/40"
-                        : "bg-accent2/15 border-accent2/40"
+                      colorStyles[exp.colorClass].dot
                     }`}
                   >
                     {exp.icon}
@@ -95,7 +136,7 @@ export default function Experience() {
                     {/* Hover glow */}
                     <div
                       className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-10 ${
-                        idx === 0 ? "bg-accent1/8" : "bg-accent2/8"
+                        colorStyles[exp.colorClass].glow
                       }`}
                     />
 
@@ -105,7 +146,7 @@ export default function Experience() {
                         <h3 className="text-xl font-bold text-white leading-tight">{exp.role}</h3>
                         <p
                           className={`font-semibold text-sm mt-1 ${
-                            idx === 0 ? "text-accent1" : "text-accent2"
+                            colorStyles[exp.colorClass].text
                           }`}
                         >
                           {exp.company}
@@ -114,9 +155,7 @@ export default function Experience() {
                       <div className="flex flex-col items-end gap-1.5 shrink-0">
                         <span
                           className={`text-xs px-3 py-1 rounded-full font-medium border ${
-                            idx === 0
-                              ? "bg-accent1/10 border-accent1/30 text-accent1"
-                              : "bg-accent2/10 border-accent2/30 text-accent2"
+                            colorStyles[exp.colorClass].badge
                           }`}
                         >
                           {exp.type}
@@ -139,7 +178,7 @@ export default function Experience() {
                         >
                           <span
                             className={`mt-2 w-1.5 h-1.5 rounded-full shrink-0 ${
-                              idx === 0 ? "bg-accent1" : "bg-accent2"
+                              colorStyles[exp.colorClass].bullet
                             }`}
                           />
                           {point}
