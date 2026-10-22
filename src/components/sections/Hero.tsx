@@ -28,13 +28,19 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-5 md:px-6 w-full">
         <motion.div
           {...fadeUp(0.1)}
-          className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-xs sm:text-sm text-white/70"
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-xs sm:text-sm text-white/70"
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-2 w-2 shrink-0">
             <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60 animate-ping" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
           </span>
-          <span>
+          {/* Shorter label so the pill stays on one line on phones */}
+          <span className="sm:hidden">
+            SDE @ <span className="text-white">DegreeBaba</span>
+            <span className="text-white/30 mx-1.5">·</span>
+            TA @ <span className="text-white">Newton School</span>
+          </span>
+          <span className="hidden sm:inline">
             SDE Intern @ <span className="text-white">DegreeBaba</span>
             <span className="text-white/30 mx-1.5">·</span>
             SDE-TA @ <span className="text-white">Newton School</span>
