@@ -67,7 +67,7 @@ export default function Hero() {
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
-            href="/resume.pdf"
+            href="https://my.newtonschool.co/template/user/iShaunTheSheep07/resume/h/7xxjt91lyih5/"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/15 text-white hover:bg-white/5 hover:border-white/25 transition-colors"
