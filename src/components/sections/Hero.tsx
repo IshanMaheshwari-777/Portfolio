@@ -1,93 +1,101 @@
 "use client";
 import { motion } from "framer-motion";
+import { ArrowRight, FileText, Flame } from "lucide-react";
+
+const stats = [
+  { value: "12", label: "Production apps shipped" },
+  { value: "900+", label: "DSA problems solved" },
+  { value: "700+", label: "Day LeetCode streak", icon: true },
+  { value: "8.6", label: "CGPA" },
+];
+
+const ease = [0.21, 0.47, 0.32, 0.98] as const;
+
+function fadeUp(delay: number) {
+  return {
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.7, delay, ease },
+  };
+}
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative pt-20">
-      <div className="max-w-7xl mx-auto px-6 w-full flex flex-col items-center text-center z-10 relative">
-        
+    <section id="home" className="relative w-full min-h-[100svh] flex items-center pt-32 pb-16">
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] max-w-full h-[500px] bg-accent1/20 blur-[140px] rounded-full -z-10" />
+
+      <div className="max-w-6xl mx-auto px-5 md:px-6 w-full">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4 inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-accent1/30 bg-accent1/10 text-accent1 text-xs sm:text-sm font-medium"
+          {...fadeUp(0.1)}
+          className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-xs sm:text-sm text-white/70"
         >
-          <span>SDE Intern @ DegreeBaba · SDE-TA @ Newton School<span className="hidden md:inline"> · Full-Stack · AI</span></span>
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60 animate-ping" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
+          </span>
+          <span>
+            SDE Intern @ <span className="text-white">DegreeBaba</span>
+            <span className="text-white/30 mx-1.5">·</span>
+            SDE-TA @ <span className="text-white">Newton School</span>
+          </span>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="relative"
+        <motion.h1
+          {...fadeUp(0.2)}
+          className="mt-8 text-[3.25rem] leading-[0.95] sm:text-7xl md:text-8xl font-semibold tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/55"
         >
-          <div className="absolute inset-0 bg-accent1/20 blur-[100px] rounded-full -z-10" />
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
-            Ishan Maheshwari
-          </h1>
-        </motion.div>
+          Ishan
+          <br />
+          Maheshwari
+        </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="text-xl md:text-3xl text-white/80 max-w-2xl mt-6 font-light"
-        >
+        <motion.p {...fadeUp(0.35)} className="mt-8 max-w-2xl text-xl md:text-3xl text-white/85 font-light tracking-tight">
           I build intelligence, then make it beautiful.
         </motion.p>
-        
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="text-base text-accent2/80 mt-4"
-        >
-          3rd year B.Tech @ Newton School of Technology
+        <motion.p {...fadeUp(0.45)} className="mt-4 max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+          Full-stack &amp; AI engineer and 3rd-year B.Tech CS student at Newton School of Technology —
+          shipping AI-powered products from first sketch to production.
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col sm:flex-row items-center gap-4 mt-12"
-        >
+        <motion.div {...fadeUp(0.55)} className="mt-10 flex flex-col sm:flex-row gap-3">
           <a
             href="#projects"
-            className="px-8 py-3 rounded-full bg-white text-background font-medium hover:bg-white/90 transition-colors"
-            data-magnetic
+            className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-background font-medium hover:bg-white/90 transition-colors"
           >
-            View My Work
+            View my work
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
-            href="#contact"
-            className="px-8 py-3 rounded-full border border-white/20 text-white hover:bg-white/5 transition-colors"
-            data-magnetic
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/15 text-white hover:bg-white/5 hover:border-white/25 transition-colors"
           >
-            Let&apos;s Connect
+            <FileText className="w-4 h-4" />
+            Resume
           </a>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="hidden md:block absolute md:top-full md:right-0 mt-10 animate-[floating_4s_ease-in-out_infinite]"
+        {/* Proof strip */}
+        <motion.dl
+          {...fadeUp(0.7)}
+          className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-y-8 border-t border-white/10 pt-8"
         >
-          <div className="px-4 py-2 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_30px_rgba(124,58,237,0.2)] flex items-center space-x-2">
-            <span className="text-2xl">🔥</span>
-            <div>
-              <p className="text-xs text-white/50">DSA · 700+ day LeetCode streak</p>
-              <p className="font-bold text-accent1">900+ Problems Solved</p>
+          {stats.map((stat) => (
+            <div key={stat.label} className="pr-4">
+              <dt className="sr-only">{stat.label}</dt>
+              <dd className="flex items-center gap-1.5 text-3xl md:text-4xl font-semibold tracking-tight text-white">
+                {stat.value}
+                {stat.icon && <Flame className="w-6 h-6 text-orange-400" aria-hidden="true" />}
+              </dd>
+              <dd className="mt-1.5 font-mono text-[11px] md:text-xs uppercase tracking-wider text-white/45">
+                {stat.label}
+              </dd>
             </div>
-          </div>
-        </motion.div>
+          ))}
+        </motion.dl>
       </div>
-      <style>{`
-        @keyframes floating {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(2deg); }
-        }
-      `}</style>
     </section>
   );
 }

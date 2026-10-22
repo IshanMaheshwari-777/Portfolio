@@ -1,32 +1,22 @@
-"use client";
-import { motion } from "framer-motion";
+import { Briefcase, GraduationCap, Clapperboard, MapPin } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 // Full class names so Tailwind picks them up.
 const colorStyles = {
-  accent1: {
-    dot: "bg-accent1/15 border-accent1/40",
-    glow: "bg-accent1/8",
-    text: "text-accent1",
-    badge: "bg-accent1/10 border-accent1/30 text-accent1",
-    bullet: "bg-accent1",
-  },
-  accent2: {
-    dot: "bg-accent2/15 border-accent2/40",
-    glow: "bg-accent2/8",
-    text: "text-accent2",
-    badge: "bg-accent2/10 border-accent2/30 text-accent2",
-    bullet: "bg-accent2",
-  },
+  accent1: { icon: "text-accent1-light bg-accent1/10 border-accent1/30", text: "text-accent1-light", dot: "bg-accent1" },
+  accent2: { icon: "text-accent2 bg-accent2/10 border-accent2/30", text: "text-accent2", dot: "bg-accent2" },
 } as const;
 
+// Wrap key results in **double asterisks** to emphasise them.
 const experiences: {
   role: string;
   company: string;
   location: string;
   period: string;
   type: string;
-  icon: string;
-  colorClass: keyof typeof colorStyles;
+  icon: typeof Briefcase;
+  color: keyof typeof colorStyles;
   highlights: string[];
   tags: string[];
 }[] = [
@@ -36,14 +26,13 @@ const experiences: {
     location: "Pune, India (Remote)",
     period: "June 2026 – Present",
     type: "Internship",
-    icon: "💼",
-    colorClass: "accent1",
+    icon: Briefcase,
+    color: "accent1",
     highlights: [
-      "Build and ship features across the company's AI-powered platforms — frontend, backend, database, and deployment.",
-      "Shipped 12 production-ready applications end-to-end — 9 public-facing platforms for DegreeBaba and 3 internal tools.",
-      "Built a cross-platform CRM (web & mobile) and multiple AI-integrated platforms powering core products and internal operations.",
-      "Built an AI-assisted content publishing pipeline (automated document ingestion, validation, and publishing workflows) that cut content processing costs by ~60%.",
-      "Work directly with the founders on product decisions, architecture, and the technical roadmap.",
+      "Shipped **12 production-ready applications** end-to-end — 9 public-facing platforms for DegreeBaba and 3 internal tools.",
+      "Built a **cross-platform CRM (web & mobile)** and multiple AI-integrated platforms powering core products and internal operations.",
+      "Built an AI-assisted content publishing pipeline (document ingestion, validation, publishing) that **cut content processing costs by ~60%**.",
+      "Own features across the stack — frontend, backend, database, and deployment — and work directly with the founders on architecture and the technical roadmap.",
     ],
     tags: ["Next.js", "Python", "AI/ML", "CRM", "Cloud", "Full Stack"],
   },
@@ -53,12 +42,12 @@ const experiences: {
     location: "Sonipat, India",
     period: "October 2026 – Present",
     type: "Internship",
-    icon: "🎓",
-    colorClass: "accent2",
+    icon: GraduationCap,
+    color: "accent2",
     highlights: [
-      "Mentor undergraduate students in Computer Science and Programming, breaking complex technical topics into easy-to-understand explanations.",
-      "Deliver exam-focused teaching sessions covering key syllabus topics, important concepts, and problem-solving approaches.",
-      "Reinforce programming fundamentals and analytical problem-solving through interactive discussions, worked examples, and step-by-step walkthroughs.",
+      "Mentor undergraduate students in **Computer Science and Programming**, breaking complex technical topics into easy-to-understand explanations.",
+      "Deliver **exam-focused teaching sessions** covering key syllabus topics, important concepts, and problem-solving approaches.",
+      "Reinforce **programming fundamentals and analytical problem-solving** through interactive discussions, worked examples, and step-by-step walkthroughs.",
     ],
     tags: ["Mentoring", "Teaching", "DSA", "CS Fundamentals", "Problem Solving"],
   },
@@ -68,141 +57,108 @@ const experiences: {
     location: "Remote",
     period: "June 2026 – Present",
     type: "Creator",
-    icon: "🎬",
-    colorClass: "accent1",
+    icon: Clapperboard,
+    color: "accent1",
     highlights: [
       "Produce research-driven long-form videos on business strategy, technology, AI, sports, and branding.",
       "Conduct in-depth market research and competitive analysis from multiple credible sources.",
       "Simplify complex business and technical concepts through data-driven storytelling.",
-      "Perform end-to-end video production — scripting, editing, thumbnail planning, and publishing.",
+      "Handle end-to-end production — scripting, editing, thumbnail planning, and publishing.",
     ],
     tags: ["Content Strategy", "Video Production", "Research", "Storytelling", "Editing"],
   },
 ];
 
+function Emphasis({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+        i % 2 === 1 ? (
+          <strong key={i} className="font-medium text-white">
+            {part}
+          </strong>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden">
-      {/* Background glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent1/8 blur-[120px] rounded-full -z-10 translate-x-1/3 -translate-y-1/4" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent2/8 blur-[100px] rounded-full -z-10 -translate-x-1/4 translate-y-1/4" />
+    <section id="experience" className="py-24 md:py-32 w-full">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
+        <SectionHeader
+          index="02"
+          label="Experience"
+          title={
+            <>
+              Where I&apos;ve been <span className="text-accent1-light">shipping</span>.
+            </>
+          }
+          description="Building real products, creating real impact."
+        />
 
-      <div className="max-w-5xl mx-auto px-6 w-full">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Work <span className="text-accent1">Experience</span>
-          </h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
-            Building real products, creating real impact.
-          </p>
-        </motion.div>
+        <ol className="relative">
+          {experiences.map((exp, idx) => {
+            const c = colorStyles[exp.color];
+            const isLast = idx === experiences.length - 1;
+            return (
+              <li key={exp.company} className="md:grid md:grid-cols-[200px_1fr] md:gap-10">
+                {/* Meta column (desktop) */}
+                <Reveal className="hidden md:block pt-1 text-right">
+                  <p className="font-mono text-xs uppercase tracking-wider text-white/70">{exp.period}</p>
+                  <p className="mt-2 inline-flex items-center gap-1 text-xs text-white/40">
+                    <MapPin className="h-3 w-3" />
+                    {exp.location}
+                  </p>
+                  <p className={`mt-1 font-mono text-[11px] uppercase tracking-wider ${c.text}`}>{exp.type}</p>
+                </Reveal>
 
-        {/* Timeline — single column with left rail */}
-        <div className="relative">
-          {/* Vertical rail line */}
-          <div className="absolute left-5 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent1/60 via-white/10 to-accent2/60" />
+                {/* Content on the rail */}
+                <div className={`relative border-l border-white/10 pl-7 md:pl-10 ${isLast ? "pb-0" : "pb-14 md:pb-16"}`}>
+                  <span className={`absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full ring-4 ring-background ${c.dot}`} />
+                  <Reveal delay={0.05}>
+                    {/* Meta (mobile) */}
+                    <p className="md:hidden font-mono text-[11px] uppercase tracking-wider text-white/50 mb-3">
+                      {exp.period} <span className="text-white/25">·</span> {exp.location}
+                    </p>
 
-          <div className="flex flex-col gap-12">
-            {experiences.map((exp, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="relative flex items-start gap-6 md:gap-10"
-              >
-                {/* Timeline dot */}
-                <div className="relative shrink-0 flex flex-col items-center" style={{ width: "40px" }}>
-                  <div
-                    className={`w-10 h-10 rounded-2xl flex items-center justify-center text-xl z-10 border ${
-                      colorStyles[exp.colorClass].dot
-                    }`}
-                  >
-                    {exp.icon}
-                  </div>
-                </div>
-
-                {/* Card */}
-                <div className="flex-1 group pb-2">
-                  <div className="relative p-7 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:border-white/20 hover:bg-white/[0.05] transition-all duration-500 shadow-[0_0_40px_rgba(0,0,0,0.25)]">
-                    {/* Hover glow */}
-                    <div
-                      className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-10 ${
-                        colorStyles[exp.colorClass].glow
-                      }`}
-                    />
-
-                    {/* Header row */}
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
+                    <div className="flex items-center gap-4">
+                      <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border ${c.icon}`}>
+                        <exp.icon className="h-5 w-5" />
+                      </span>
                       <div>
-                        <h3 className="text-xl font-bold text-white leading-tight">{exp.role}</h3>
-                        <p
-                          className={`font-semibold text-sm mt-1 ${
-                            colorStyles[exp.colorClass].text
-                          }`}
-                        >
-                          {exp.company}
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-end gap-1.5 shrink-0">
-                        <span
-                          className={`text-xs px-3 py-1 rounded-full font-medium border ${
-                            colorStyles[exp.colorClass].badge
-                          }`}
-                        >
-                          {exp.type}
-                        </span>
-                        <span className="text-white/40 text-xs">{exp.location}</span>
-                        <span className="text-white/60 text-xs font-medium">{exp.period}</span>
+                        <h3 className="text-lg md:text-xl font-semibold text-white leading-tight">{exp.role}</h3>
+                        <p className={`text-sm font-medium ${c.text}`}>{exp.company}</p>
                       </div>
                     </div>
 
-                    {/* Highlights */}
-                    <ul className="space-y-2.5 mb-5">
-                      {exp.highlights.map((point, pIdx) => (
-                        <motion.li
-                          key={pIdx}
-                          initial={{ opacity: 0, x: -8 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.35, delay: idx * 0.1 + pIdx * 0.06 }}
-                          className="flex items-start gap-2.5 text-white/60 text-sm leading-relaxed"
-                        >
-                          <span
-                            className={`mt-2 w-1.5 h-1.5 rounded-full shrink-0 ${
-                              colorStyles[exp.colorClass].bullet
-                            }`}
-                          />
-                          {point}
-                        </motion.li>
+                    <ul className="mt-5 space-y-3 max-w-3xl">
+                      {exp.highlights.map((point) => (
+                        <li key={point} className="flex gap-3 text-[15px] text-white/60 leading-relaxed">
+                          <span className="mt-[0.65rem] h-1 w-1 shrink-0 rounded-full bg-white/30" />
+                          <span>
+                            <Emphasis text={point} />
+                          </span>
+                        </li>
                       ))}
                     </ul>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tags.map((tag, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/45 font-medium"
-                        >
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {exp.tags.map((tag) => (
+                        <span key={tag} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-[11px] text-white/55">
                           {tag}
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </Reveal>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

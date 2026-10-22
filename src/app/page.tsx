@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import CustomCursor from "@/components/CustomCursor";
 import MotionProvider from "@/components/MotionProvider";
 import ParticleBackground from "@/components/ParticleBackground";
 import Hero from "@/components/sections/Hero";
@@ -14,12 +13,10 @@ export default function Home() {
   return (
     <MotionProvider>
       <main className="relative min-h-screen selection:bg-accent1 selection:text-white">
-        <CustomCursor />
         <ParticleBackground />
         <Navbar />
 
-        {/* Sections Wrapper with some relative positioning ensuring stacking context */}
-        <div className="relative z-10 flex flex-col items-center overflow-x-hidden">
+        <div className="relative z-10 flex flex-col overflow-x-hidden">
           <Hero />
           <About />
           <Experience />

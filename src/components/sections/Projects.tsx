@@ -1,36 +1,19 @@
-"use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { GithubIcon } from "@/components/ui/icons";
 
-function GithubIcon({ className }: { className?: string }) {
-  return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="24" 
-      height="24" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      className={className}
-    >
-      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.6a5.6 5.6 0 0 0-1.5-3.9 5.6 5.6 0 0 0-.1-3.8s-1.3-.4-4 1.5a13.3 13.3 0 0 0-7 0C6.2 1.5 5 1.9 5 1.9a5.6 5.6 0 0 0-.1 3.8A5.6 5.6 0 0 0 3.4 9.6c0 3.6 3 5.6 6 5.6a4.8 4.8 0 0 0-1 3.2v4" />
-    </svg>
-  );
-}
-
-const projects: {
+type Project = {
   title: string;
   description: string;
   stack: string[];
   image: string;
   liveUrl: string | null;
   githubUrl: string;
-  color: string;
-}[] = [
+};
+
+const projects: Project[] = [
   {
     title: "NextFlow",
     description:
@@ -39,7 +22,6 @@ const projects: {
     image: "/nextflow.jpg",
     liveUrl: "https://next-flow-liart.vercel.app/",
     githubUrl: "https://github.com/IshanMaheshwari-777/NextFlow",
-    color: "from-accent1/20 to-transparent",
   },
   {
     title: "Dishcover",
@@ -49,7 +31,6 @@ const projects: {
     image: "/dishcover.jpg",
     liveUrl: "https://dishcover-lemon.vercel.app/home",
     githubUrl: "https://github.com/IshanMaheshwari-777/Dishcover",
-    color: "from-accent2/20 to-transparent",
   },
   {
     title: "DropZone",
@@ -59,7 +40,6 @@ const projects: {
     image: "/dropzone.jpg",
     liveUrl: "https://drop-zone-beta.vercel.app/",
     githubUrl: "https://github.com/IshanMaheshwari-777/DropZone",
-    color: "from-accent2/20 to-transparent",
   },
   {
     title: "Road Traffic Analysis",
@@ -69,67 +49,123 @@ const projects: {
     image: "/road-traffic.png",
     liveUrl: null,
     githubUrl: "https://github.com/IshanMaheshwari-777/Data-Driven-Analysis-of-Road-Traffic-Accident-Severity",
-    color: "from-accent2/20 to-transparent",
   },
 ];
 
-export default function Projects() {
+function ProjectLinks({ project }: { project: Project }) {
   return (
-    <section id="projects" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+    <div className="flex flex-wrap gap-2">
+      {project.liveUrl && (
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-background text-sm font-medium hover:bg-white/90 transition-colors"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured <span className="text-accent1">Projects</span></h2>
-        </motion.div>
+          Live site
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+      )}
+      <a
+        href={project.githubUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/15 text-white text-sm font-medium hover:bg-white/5 hover:border-white/25 transition-colors"
+      >
+        <GithubIcon className="h-4 w-4" />
+        Source
+      </a>
+    </div>
+  );
+}
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-md p-8 shadow-2xl transition-all duration-500 hover:border-white/20"
-            >
-              <div className={`absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br ${project.color} blur-[60px] rounded-full mix-blend-screen opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="relative aspect-video mb-6 rounded-2xl overflow-hidden border border-white/10 bg-white/5">
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} screenshot`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-white/60 mb-8 flex-1 text-lg leading-relaxed">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.stack.map((tech) => (
-                    <span key={tech} className="px-3 py-1 text-xs font-medium bg-white/5 border border-white/10 rounded-full text-accent2 group-hover:border-accent2/30 transition-colors">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+function Stack({ items }: { items: string[] }) {
+  return (
+    <ul className="flex flex-wrap gap-1.5">
+      {items.map((tech) => (
+        <li key={tech} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-[11px] text-white/55">
+          {tech}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
-                <div className="flex items-center gap-4">
-                  {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer" className="flex items-center justify-center p-3 rounded-full bg-white text-background hover:bg-white/90 transition-colors" data-magnetic>
-                    <ExternalLink className="w-5 h-5" />
-                  </a>}
-                  <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex items-center justify-center p-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors" data-magnetic>
-                    <GithubIcon className="w-5 h-5" />
-                  </a>
-                </div>
+function Screenshot({ project, sizes, className }: { project: Project; sizes: string; className: string }) {
+  return (
+    <div className={`relative overflow-hidden bg-white/5 ${className}`}>
+      <Image
+        src={project.image}
+        alt={`${project.title} screenshot`}
+        fill
+        sizes={sizes}
+        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+      />
+    </div>
+  );
+}
+
+export default function Projects() {
+  const [featured, ...rest] = projects;
+
+  return (
+    <section id="projects" className="py-24 md:py-32 w-full">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
+        <SectionHeader
+          index="03"
+          label="Projects"
+          title={
+            <>
+              Selected <span className="text-accent1-light">work</span>.
+            </>
+          }
+          description="Things I've designed, built, and shipped end to end."
+        />
+
+        {/* Featured */}
+        <Reveal>
+          <article className="group grid md:grid-cols-[1.25fr_1fr] rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-white/20 transition-colors">
+            <Screenshot
+              project={featured}
+              sizes="(max-width: 768px) 100vw, 60vw"
+              className="aspect-[16/10] md:aspect-auto md:min-h-[380px] border-b md:border-b-0 md:border-r border-white/10"
+            />
+            <div className="flex flex-col p-6 md:p-10">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent2 mb-3">Featured</p>
+              <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">{featured.title}</h3>
+              <p className="mt-3 text-white/60 leading-relaxed">{featured.description}</p>
+              <div className="mt-6">
+                <Stack items={featured.stack} />
               </div>
-            </motion.div>
+              <div className="mt-8 md:mt-auto md:pt-8">
+                <ProjectLinks project={featured} />
+              </div>
+            </div>
+          </article>
+        </Reveal>
+
+        {/* The rest */}
+        <div className="mt-5 grid md:grid-cols-3 gap-5">
+          {rest.map((project, idx) => (
+            <Reveal key={project.title} delay={idx * 0.08} className="h-full">
+              <article className="group h-full flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-white/20 transition-colors">
+                <Screenshot
+                  project={project}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="aspect-[16/10] border-b border-white/10"
+                />
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-semibold tracking-tight text-white">{project.title}</h3>
+                  <p className="mt-2 text-sm text-white/55 leading-relaxed">{project.description}</p>
+                  <div className="mt-5">
+                    <Stack items={project.stack} />
+                  </div>
+                  <div className="mt-auto pt-6">
+                    <ProjectLinks project={project} />
+                  </div>
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

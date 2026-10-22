@@ -11,11 +11,13 @@ const config: Config = {
       colors: {
         background: "#050508",
         foreground: "#F8FAFC",
-        accent1: "#7C3AED",
+        // DEFAULT for fills/glows; "light" for text, which needs more contrast on the dark background.
+        accent1: { DEFAULT: "#7C3AED", light: "#A78BFA" },
         accent2: "#06B6D4",
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

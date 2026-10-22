@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, FileText } from "lucide-react";
 
 const navItems = [
-  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
@@ -63,9 +62,9 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-5 md:px-6 h-16 flex items-center justify-between">
         <a href="#home" className="text-xl font-bold tracking-tighter text-foreground">
-          IM.
+          IM<span className="text-accent1-light">.</span>
         </a>
 
         <nav className="hidden md:flex items-center space-x-1 border border-white/10 rounded-full px-2 py-1 bg-white/5 backdrop-blur-sm">
@@ -74,7 +73,7 @@ export default function Navbar() {
               key={item.name}
               href={item.href}
               className={`relative px-4 py-2 text-sm font-medium transition-colors ${
-                activeSection === item.name.toLowerCase() ? "text-accent1" : "text-white/70 hover:text-white"
+                activeSection === item.name.toLowerCase() ? "text-white" : "text-white/60 hover:text-white"
               }`}
             >
               {activeSection === item.name.toLowerCase() && (
@@ -94,8 +93,7 @@ export default function Navbar() {
             href="/resume.pdf"
             target="_blank"
             rel="noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border border-accent1/40 bg-accent1/10 text-accent1 hover:bg-accent1/20 transition-colors"
-            data-magnetic
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border border-white/15 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
           >
             <FileText className="w-4 h-4" />
             Resume
@@ -131,7 +129,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
                     activeSection === item.name.toLowerCase()
-                      ? "text-accent1 bg-white/5"
+                      ? "text-white bg-white/5"
                       : "text-white/70 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -143,7 +141,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-accent1/40 bg-accent1/10 text-accent1 font-medium"
+                className="mt-2 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-white/15 text-white font-medium"
               >
                 <FileText className="w-4 h-4" />
                 Resume

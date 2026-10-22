@@ -1,88 +1,85 @@
-"use client";
-import { motion } from "framer-motion";
+import { Briefcase, GraduationCap, Clapperboard, Globe } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
+
+const now = [
+  { icon: Briefcase, title: "SDE Intern", org: "DegreeBaba", note: "AI platforms & a cross-platform CRM" },
+  { icon: GraduationCap, title: "SDE-TA", org: "Newton School", note: "Mentoring CS undergraduates" },
+  { icon: Clapperboard, title: "@IshanDecodes", org: "YouTube", note: "Business, tech & AI explainers" },
+  { icon: Globe, title: "Freelance Studio", org: "Independent", note: "Open to new projects" },
+];
+
+const offKeyboard = ["University cricket team", "Neutron Fest organiser"];
 
 export default function About() {
-  const stats = [
-    { label: "CGPA", value: "8.6" },
-    { label: "DegreeBaba", value: "SDE Intern" },
-    { label: "Newton School", value: "SDE-TA" },
-    { label: "Problems Solved", value: "900+" },
-    { label: "LeetCode Streak", value: "700+ Days" },
-    { label: "YouTube", value: "@IshanDecodes" },
-    { label: "Freelance", value: "Studio" },
-    { label: "University Team", value: "Cricket" },
-    { label: "Organizer", value: "Neutron Fest" },
-  ];
-
   return (
-    <section id="about" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-16">
-        
-        {/* Left Side: Bio */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="flex-1"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            <span className="text-accent2">About</span> Me
-          </h2>
-          <div className="space-y-6 text-lg text-white/70 font-light leading-relaxed">
-            <p>
-              I&apos;m a 3rd year B.Tech CS student at Rishihood University (CGPA: 8.6), currently interning as a
-              {" "}<span className="text-accent1 font-medium">Software Development Engineer at DegreeBaba</span>{" "}
-              — building AI-powered platforms, a cross-platform CRM, and driving engineering decisions from concept to production.
-              I&apos;m also an{" "}<span className="text-accent1 font-medium">SDE-TA at Newton School</span>, mentoring undergraduates in
-              computer science and programming.
-            </p>
-            <p>
-              Beyond code, I create research-driven content on YouTube as{" "}
-              <span className="text-accent2 font-medium">@IshanDecodes</span> — covering business, tech, AI, and branding.
-              I organise university fests, play cricket for my university team, and live by consistency:
-              {" "}<span className="text-accent1 font-medium">900+ DSA problems across LeetCode, Codeforces &amp; more, with a 700+ day LeetCode streak</span>.
-            </p>
-          </div>
-        </motion.div>
+    <section id="about" className="py-24 md:py-32 w-full">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
+        <SectionHeader
+          index="01"
+          label="About"
+          title={
+            <>
+              Engineer by trade,{" "}
+              <span className="text-accent1-light">storyteller</span> on the side.
+            </>
+          }
+        />
 
-        {/* Right Side: Floating Cards */}
-        <div className="flex-1 w-full grid grid-cols-3 gap-4 relative">
-          {/* Subtle background glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-accent1/10 blur-[80px] rounded-full -z-10" />
-          
-          {stats.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className={`p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col justify-center items-center text-center shadow-lg ${
-                idx % 2 === 0 ? "translate-y-4" : "-translate-y-4"
-              }`}
-              style={{
-                animation: `floating-${idx % 2 === 0 ? 'up' : 'down'} ${4 + idx}s ease-in-out infinite alternate`,
-              }}
-            >
-              <p className="text-xl font-bold text-white mb-2">{stat.value}</p>
-              <p className="text-sm text-accent2">{stat.label}</p>
-            </motion.div>
-          ))}
+        <div className="grid md:grid-cols-5 gap-12 md:gap-16">
+          <Reveal className="md:col-span-3 space-y-6 text-base md:text-lg text-white/60 leading-relaxed">
+            <p>
+              I&apos;m a 3rd-year B.Tech CS student at Newton School of Technology, Rishihood University (CGPA 8.6).
+              At <span className="text-white font-medium">DegreeBaba</span> I build and ship AI-powered platforms end
+              to end — from a cross-platform CRM to an AI publishing pipeline that cut content processing costs by
+              about 60%.
+            </p>
+            <p>
+              I&apos;m also an <span className="text-white font-medium">SDE-TA at Newton School</span>, mentoring
+              undergraduates through CS fundamentals and programming — which keeps my own basics sharp.
+            </p>
+            <p>
+              Outside of work I make research-driven videos as{" "}
+              <span className="text-white font-medium">@IshanDecodes</span>, play cricket for my university, and help
+              organise fests. The through-line is consistency:{" "}
+              <span className="text-white font-medium">900+ DSA problems</span> and a{" "}
+              <span className="text-white font-medium">700+ day LeetCode streak</span>.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.1} className="md:col-span-2">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-7">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-white/40 mb-5">Right now</p>
+              <ul className="space-y-4">
+                {now.map((item) => (
+                  <li key={item.title} className="flex items-start gap-4">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-accent2">
+                      <item.icon className="h-4 w-4" />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium text-white">
+                        {item.title} <span className="text-white/40 font-normal">· {item.org}</span>
+                      </p>
+                      <p className="text-sm text-white/50">{item.note}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-white/40 mb-3">Off the keyboard</p>
+                <div className="flex flex-wrap gap-2">
+                  {offKeyboard.map((item) => (
+                    <span key={item} className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-white/70">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
-
-      <style>{`
-        @keyframes floating-up {
-          0% { transform: translateY(16px); }
-          100% { transform: translateY(0px); }
-        }
-        @keyframes floating-down {
-          0% { transform: translateY(-16px); }
-          100% { transform: translateY(0px); }
-        }
-      `}</style>
     </section>
   );
 }

@@ -1,71 +1,52 @@
-"use client";
-import { motion } from "framer-motion";
+import { Code2, Layers, Wrench, Database, BrainCircuit, Trophy } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const skillsData = [
-  { category: "Languages", items: ["Python", "SQL", "JavaScript", "TypeScript"] },
-  { category: "Frameworks", items: ["React", "Next.js", "Express.js", "NumPy", "Pandas", "Matplotlib"] },
-  { category: "Tools", items: ["Git", "GitHub", "Postman", "Prisma ORM", "OAuth 2.0"] },
-  { category: "Databases", items: ["MongoDB", "MySQL", "PostgreSQL"] },
-  { category: "AI / ML", items: ["Machine Learning", "Generative AI", "LLM APIs"] },
+  { category: "Languages", icon: Code2, items: ["Python", "SQL", "JavaScript", "TypeScript"] },
+  { category: "Frameworks", icon: Layers, items: ["React", "Next.js", "Express.js", "NumPy", "Pandas", "Matplotlib"] },
+  { category: "Tools", icon: Wrench, items: ["Git", "GitHub", "Postman", "Prisma ORM", "OAuth 2.0"] },
+  { category: "Databases", icon: Database, items: ["MongoDB", "MySQL", "PostgreSQL"] },
+  { category: "AI / ML", icon: BrainCircuit, items: ["Machine Learning", "Generative AI", "LLM APIs"] },
+  { category: "Problem Solving", icon: Trophy, items: ["DSA", "900+ problems", "LeetCode", "Codeforces", "CodeChef"] },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent2/10 blur-[100px] rounded-full -translate-y-1/2 -translate-x-1/2 -z-10" />
-      
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Core <span className="text-accent2">Competencies</span></h2>
-        </motion.div>
+    <section id="skills" className="py-24 md:py-32 w-full">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
+        <SectionHeader
+          index="04"
+          label="Skills"
+          title={
+            <>
+              The <span className="text-accent1-light">stack</span> I reach for.
+            </>
+          }
+        />
 
-        <div className="flex flex-col gap-12">
-          {skillsData.map((skillGroup, groupIdx) => (
-            <div key={groupIdx} className="flex flex-col md:flex-row items-center gap-6 md:gap-12">
-              <motion.h3 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: groupIdx * 0.1 }}
-                className="text-xl font-bold text-white/50 w-full md:w-32 text-center md:text-right shrink-0"
-              >
-                {skillGroup.category}
-              </motion.h3>
-              
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 flex-1">
-                {skillGroup.items.map((skill, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: (groupIdx * 0.1) + (idx * 0.05) }}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="relative px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm cursor-default"
-                    style={{
-                      animation: `floating-drift ${5 + (idx % 3)}s ease-in-out infinite alternate`,
-                    }}
-                    data-magnetic
-                  >
-                    <span className="relative z-10 text-white group-hover:text-accent1 transition-colors font-medium">{skill}</span>
-                  </motion.div>
-                ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {skillsData.map((group, idx) => (
+            <Reveal key={group.category} delay={idx * 0.05} className="h-full">
+              <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-white/20 transition-colors">
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-accent2">
+                    <group.icon className="h-4 w-4" />
+                  </span>
+                  <h3 className="text-base font-semibold text-white">{group.category}</h3>
+                </div>
+                <ul className="flex flex-wrap gap-2">
+                  {group.items.map((skill) => (
+                    <li key={skill} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-white/75">
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
-      <style>{`
-        @keyframes floating-drift {
-          0% { transform: translate(0, 0); }
-          100% { transform: translate(3px, -5px); }
-        }
-      `}</style>
     </section>
   );
 }

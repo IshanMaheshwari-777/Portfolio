@@ -1,6 +1,5 @@
-"use client";
-import { motion } from "framer-motion";
 import { Globe, BrainCircuit, Building2, Smartphone, ArrowUpRight } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
 const capabilities = [
   {
@@ -27,67 +26,55 @@ const capabilities = [
 
 export default function Freelance() {
   return (
-    <section id="freelance" className="py-24 relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent1/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 -z-10" />
+    <section id="freelance" className="py-24 md:py-32 w-full">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-accent1/[0.12] via-white/[0.02] to-accent2/[0.06] p-6 sm:p-10 md:p-14">
+            <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent1/20 blur-[100px]" />
 
-      <div className="max-w-5xl mx-auto px-6 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent1/30 bg-accent1/10 text-accent1 text-sm font-medium">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Available for new projects
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Freelance <span className="text-accent1">Studio</span>
-          </h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
-            Alongside my internships, I build custom software, AI products and web apps for
-            businesses — end to end, one person, start to finish.
-          </p>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 gap-5 mb-12">
-          {capabilities.map((cap, idx) => (
-            <motion.div
-              key={cap.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300"
-            >
-              <div className="w-10 h-10 rounded-xl bg-accent1/10 border border-accent1/30 flex items-center justify-center mb-4 text-accent1">
-                <cap.icon className="w-5 h-5" />
+            <div className="relative grid lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-14">
+              <div className="flex flex-col">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent2 mb-4">
+                  <span className="text-white/30">05</span>
+                  <span className="text-white/20 mx-2">/</span>
+                  Freelance
+                </p>
+                <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white leading-[1.1]">
+                  Need something built? <span className="text-accent1-light">Let&apos;s talk.</span>
+                </h2>
+                <p className="mt-4 text-base md:text-lg text-white/60 leading-relaxed">
+                  Alongside my internships, I build custom software, AI products and web apps for businesses —
+                  end to end, one person, start to finish.
+                </p>
+                <div className="mt-6 inline-flex w-fit items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm text-white/70">
+                  <span className="h-2 w-2 rounded-full bg-green-400" />
+                  Available for new projects
+                </div>
+                <div className="mt-8 lg:mt-auto lg:pt-10">
+                  <a
+                    href="https://freelance-portfolio-alpha-eight.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-background font-medium hover:bg-white/90 transition-colors"
+                  >
+                    View Freelance Studio
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1.5">{cap.title}</h3>
-              <p className="text-sm text-white/50 leading-relaxed">{cap.description}</p>
-            </motion.div>
-          ))}
-        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center"
-        >
-          <a
-            href="https://freelance-portfolio-alpha-eight.vercel.app/"
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent1 text-white font-bold hover:bg-accent1/90 transition-all shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:shadow-[0_0_50px_rgba(124,58,237,0.6)] hover:-translate-y-1"
-            data-magnetic
-          >
-            View Freelance Studio
-            <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-        </motion.div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {capabilities.map((cap) => (
+                  <div key={cap.title} className="rounded-2xl border border-white/10 bg-background/40 p-5 backdrop-blur-sm">
+                    <cap.icon className="h-5 w-5 text-accent2 mb-4" />
+                    <h3 className="text-base font-semibold text-white mb-1.5">{cap.title}</h3>
+                    <p className="text-sm text-white/55 leading-relaxed">{cap.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
