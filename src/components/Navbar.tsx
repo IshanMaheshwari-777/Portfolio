@@ -91,7 +91,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="/resume.pdf"
+            href="https://my.newtonschool.co/template/user/iShaunTheSheep07/resume/h/7xxjt91lyih5/"
             target="_blank"
             rel="noreferrer"
             className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border border-accent1/40 bg-accent1/10 text-accent1 hover:bg-accent1/20 transition-colors"
@@ -139,7 +139,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="/resume.pdf"
+                href="https://my.newtonschool.co/template/user/iShaunTheSheep07/resume/h/7xxjt91lyih5/"
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMenuOpen(false)}
