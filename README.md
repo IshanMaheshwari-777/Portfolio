@@ -34,17 +34,18 @@
 
 ## 📸 Overview
 
-A **dark, premium personal portfolio** built with Next.js 14, featuring smooth animations, custom cursor, particle backgrounds, and glassmorphism design — designed to make a strong first impression.
+A **dark, premium personal portfolio** built with Next.js 14, featuring subtle animations, a particle background, and a clean editorial layout — designed to make a strong first impression.
 
 <div align="center">
 
 | Section | Description |
 |---|---|
-| 🏠 **Hero** | Animated intro with LeetCode streak badge |
-| 👤 **About** | Bio, CGPA, stats cards |
+| 🏠 **Hero** | Intro, current roles, and a proof strip (apps shipped, problems solved, streak, CGPA) |
+| 👤 **About** | Bio + a "Right now" card of current roles |
 | 💼 **Experience** | DegreeBaba internship · Newton School SDE-TA · YouTube Creator |
-| 🛠️ **Projects** | Dishcover · DropZone · Road Traffic Analysis · NextFlow |
-| ⚡ **Skills** | Languages · Libraries · Tools · Databases |
+| 🛠️ **Projects** | NextFlow (featured) · Dishcover · DropZone · Road Traffic Analysis |
+| ⚡ **Skills** | Languages · Frameworks · Tools · Databases · AI/ML · Problem Solving |
+| 🤝 **Freelance** | Freelance studio services and availability |
 | 📬 **Contact** | Email · LinkedIn · GitHub · LeetCode · Codeforces · CodeChef |
 
 </div>
@@ -68,12 +69,11 @@ A **dark, premium personal portfolio** built with Next.js 14, featuring smooth a
 
 ## ✨ Features
 
-- 🎨 **Dark glassmorphism UI** — premium look with `bg-white/5`, backdrop blur, and layered glows
-- 🖱️ **Custom cursor** — spring-physics cursor with hover expand effect
-- 🌌 **Particle background** — animated floating particles that respond to scroll
+- 🎨 **Dark editorial UI** — numbered section headers, Inter + JetBrains Mono, restrained glows
+- 🌌 **Particle background** — subtle floating particles
 - 📜 **Smooth scroll animations** — every section fades and slides in via `framer-motion`
 - ⚡ **Fully responsive** — mobile-first layout across all sections
-- 🔗 **Magnetic buttons** — interactive hover pull effect on CTAs
+- 📋 **Copy-to-clipboard email** and labelled social links in Contact
 - 🧭 **Smart navbar** — highlights active section on scroll with animated pill indicator
 - 🗂️ **Timeline experience** — vertical rail layout for work history
 
@@ -84,20 +84,20 @@ A **dark, premium personal portfolio** built with Next.js 14, featuring smooth a
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout with Inter font + metadata
+│   ├── layout.tsx          # Root layout with Inter + JetBrains Mono fonts + metadata
 │   ├── page.tsx            # Page composition
 │   └── globals.css         # CSS variables, scroll, selection styles
 │
 └── components/
-    ├── CustomCursor.tsx    # Spring-physics custom cursor
     ├── Navbar.tsx          # Sticky navbar with active section tracking
     ├── ParticleBackground.tsx
+    ├── ui/                 # Reveal animation, SectionHeader, brand icons
     └── sections/
-        ├── Hero.tsx        # Landing with LeetCode streak badge
-        ├── About.tsx       # Bio + floating stat cards
+        ├── Hero.tsx        # Landing with proof strip
+        ├── About.tsx       # Bio + "Right now" card
         ├── Experience.tsx  # Timeline — DegreeBaba + Newton School + YouTube
-        ├── Projects.tsx    # Project cards grid
-        ├── Skills.tsx      # Skill tags by category
+        ├── Projects.tsx    # Featured project + card grid
+        ├── Skills.tsx      # Skill cards by category
         └── Contact.tsx     # Email CTA + social links
 ```
 
